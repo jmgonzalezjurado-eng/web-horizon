@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your communication, in good hands · Horizon Europe · THE GASP COMPANY®</title>
+<meta name="description" content="Science communication and design studio for Horizon Europe projects: strategy, visual identity, website, dissemination kit and ongoing support, from proposal to final review.">
+<style>
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+:root{
+  --black:#000;--white:#fff;--grey-1:#f4f4f4;--grey-2:#e6e6e6;--grey-3:#c4c4c4;
+  --text-2:#3d3d3d;--text-3:#595959;--on-black-2:#d4d4d4;--line-dark:#4a4a4a;
+  --pad:clamp(20px,5.5vw,80px);--section:clamp(72px,9vw,120px);
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--black);font-family:'Neue Montreal','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3,p,ul{margin:0}
+.wrap{padding-inline:var(--pad)}
+.logo{fill:currentColor;display:block;flex-shrink:0}
+
+/* Type */
+.h1{font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
+.h2{font-size:clamp(34px,3.7vw,54px);line-height:1.03;font-weight:500;letter-spacing:-.02em}
+.h2-xl{font-size:clamp(40px,5.2vw,80px);line-height:.98;font-weight:500;letter-spacing:-.03em}
+.h3{font-size:22px;font-weight:700}
+.lead{font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:var(--text-2);max-width:40ch}
+.body{font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:var(--text-2);max-width:48ch}
+.muted{color:var(--text-3)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;min-height:56px;padding:0 28px;border-radius:28px;font-size:17px;font-weight:600;text-decoration:none;border:1.5px solid var(--black);transition:background .2s,color .2s}
+.btn-solid{background:var(--black);color:var(--white)}
+.btn-solid:hover{background:var(--white);color:var(--black)}
+.btn-line:hover{background:var(--black);color:var(--white)}
+.btn-white{background:var(--white);color:var(--black);border-color:var(--white)}
+.btn-white:hover{background:transparent;color:var(--white)}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+/* Nav */
+/* Liquid glass header: floating pill. Chromium gets SVG refraction, other browsers a frosted fallback */
+.nav{position:sticky;top:calc(12px + env(safe-area-inset-top,0px));z-index:20;margin:12px var(--pad) 0;border-radius:36px;
+  background:rgba(255,255,255,.55);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 -1px 2px rgba(255,255,255,.35),inset 0 0 0 1px rgba(0,0,0,.08),0 12px 32px rgba(0,0,0,.12)}
+.nav.glass{background:rgba(255,255,255,.42)}
+.nav .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;padding-inline:clamp(14px,1.8vw,28px) clamp(10px,1vw,14px)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;font-size:17px;font-weight:700;letter-spacing:0}
+.nav-links{display:flex;align-items:center;gap:32px;font-size:16px}
+.nav-links a:not(.btn){text-decoration:none}
+.nav-links a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
+.nav-links .btn{min-height:44px;padding:0 22px;font-size:16px}
+
+/* Marquee */
+.marquee{overflow:hidden;padding-block:clamp(14px,1.6vw,22px);background:var(--black);color:var(--white);border-block:1px solid var(--line-dark)}
+.marquee-track{display:flex;width:max-content;animation:loop 40s linear infinite}
+.marquee-group{display:flex;flex-shrink:0}
+.marquee-item{display:inline-flex;align-items:center;gap:clamp(16px,2vw,28px);padding-right:clamp(16px,2vw,28px);flex-shrink:0}
+.marquee-item span{font-size:clamp(30px,3.9vw,56px);line-height:1;font-weight:500;letter-spacing:-.035em;white-space:nowrap}
+.marquee-item svg{width:clamp(22px,2.6vw,38px);height:auto}
+@keyframes loop{to{transform:translateX(-50%)}}
+
+/* Hero */
+.hero{padding-top:clamp(56px,6vw,88px);display:flex;flex-direction:column;gap:40px}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Timeline */
+.timeline{padding-block:clamp(64px,7vw,96px) var(--section)}
+.tl{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));row-gap:14px}
+.tl-mark{padding:0 0 14px 16px;border-bottom:2px solid var(--black);border-left:1px solid var(--black);font-size:15px;font-weight:600}
+.tl-mark:first-child{padding-left:0;border-left:0}
+.tl-block{padding:20px;border-radius:6px;display:flex;flex-direction:column;gap:6px}
+.tl-block b{font-size:18px}
+.tl-block small{font-size:14px;line-height:1.45}
+.c2{grid-column:span 2}.c3{grid-column:span 3}.c5{grid-column:span 5}.c7{grid-column:span 7}
+.tl-proposal{border:1.5px dashed var(--black);margin-right:8px}
+.tl-proposal small,.tl-ongoing small,.tl-demand small{color:var(--text-2)}
+.tl-launch{background:var(--black);color:var(--white);margin-right:8px}
+.tl-launch small{color:var(--on-black-2)}
+.tl-ongoing{background:var(--grey-2)}
+.tl-demand{grid-column:6 / span 7;border:1px solid var(--grey-3);flex-direction:row;justify-content:space-between;align-items:center;padding:16px 20px;gap:16px}
+
+/* Grid sections */
+.split{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px}
+.grant{background:var(--grey-1);padding-block:var(--section)}
+.grant-intro{grid-column:span 5;display:flex;flex-direction:column;gap:24px}
+.grant-list{grid-column:7 / span 6;list-style:none;padding:0}
+.grant-list li{padding:26px 0;border-top:1px solid var(--black);display:flex;flex-direction:column;gap:8px}
+.grant-list li:last-child{border-bottom:1px solid var(--black)}
+.grant-list p{font-size:17px;line-height:1.55;color:var(--text-2)}
+
+.sec{padding-block:var(--section);display:flex;flex-direction:column;gap:clamp(40px,4vw,56px)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+
+/* Packages */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pack{padding:clamp(28px,3vw,40px);border-radius:10px;display:flex;flex-direction:column;gap:28px}
+.pack h3{font-size:30px;font-weight:700}
+.pack .when{font-size:16px;margin-top:10px}
+.price{font-size:clamp(32px,2.8vw,40px);font-weight:700;letter-spacing:-.01em}
+.price small{font-size:17px;font-weight:400;letter-spacing:0}
+.pack ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.45}
+.pack li{padding-top:12px;border-top:1px solid var(--grey-3)}
+.pack-dark{background:var(--black);color:var(--white)}
+.pack-dark .when{color:var(--on-black-2)}
+.pack-dark li{border-color:var(--line-dark)}
+.pack-grey{background:var(--grey-1)}
+.pack-line{border:1.5px solid var(--black)}
+.pack-grey .when,.pack-line .when{color:var(--text-3)}
+
+/* Proposal band */
+.proposal{background:var(--black);color:var(--white);padding-block:var(--section);align-items:end}
+.proposal h2{grid-column:span 7}
+.proposal-side{grid-column:9 / span 4;display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+.proposal-side p{font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:var(--on-black-2)}
+
+/* Work */
+.work-list{display:flex;flex-direction:column}
+.work-row{position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:6px;padding:28px 0;border-top:1px solid var(--black);text-decoration:none;align-items:baseline;transition:padding .25s}
+.work-row:last-child{border-bottom:1px solid var(--black)}
+.work-row:hover{padding-left:16px}
+.work-name{grid-column:span 3;font-size:clamp(24px,2.1vw,30px);font-weight:700}
+.work-desc{grid-column:span 5;font-size:18px;line-height:1.5;color:var(--text-2)}
+.work-type{grid-column:span 4;font-size:16px;color:var(--text-3);text-align:right}
+
+
+/* Footer */
+.footer{background:var(--black);color:var(--white);padding-top:var(--section);padding-bottom:calc(48px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:80px}
+.contact{align-items:end}
+.contact-main{grid-column:span 8;display:flex;flex-direction:column;gap:28px}
+.contact-main h2{font-size:clamp(44px,6.1vw,88px);line-height:.96;font-weight:500;letter-spacing:-.03em}
+.contact-main p{font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:var(--on-black-2);max-width:46ch}
+.contact-side{grid-column:9 / span 4;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.contact-side a:not(.btn){font-size:19px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-top:32px;border-top:1px solid var(--line-dark);font-size:15px;color:#bdbdbd}
+.foot a{color:var(--white)}
+.foot .brand{color:var(--white)}
+.legal-link{font:inherit;font-size:15px;color:var(--white);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.legal-link:hover{color:#bdbdbd}
+
+/* Privacy modal */
+.privacy{width:min(680px,calc(100vw - 32px));max-height:min(80vh,760px);padding:0;border:0;border-radius:20px;background:var(--white);color:var(--black);box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.privacy::backdrop{background:rgba(0,0,0,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.privacy-in{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:18px}
+.privacy-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.privacy h2{margin:0;font-size:clamp(28px,3vw,36px);line-height:1.05;font-weight:500;letter-spacing:-.02em}
+.privacy h3{margin:14px 0 0;font-size:18px;font-weight:700}
+.privacy p{margin:0;font-size:16px;line-height:1.6;color:var(--text-2)}
+.privacy small{font-size:14px;color:var(--text-3)}
+.x{flex-shrink:0;width:44px;height:44px;border-radius:22px;border:1.5px solid var(--black);background:var(--white);font:inherit;font-size:22px;line-height:1;cursor:pointer}
+.x:hover{background:var(--black);color:var(--white)}
+
+/* Cookie notice: same liquid glass as the header */
+.cookie{position:fixed;left:var(--pad);bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;width:min(440px,calc(100vw - 2 * var(--pad)));padding:22px 22px 18px 24px;border-radius:28px;
+  background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 -1px 2px rgba(255,255,255,.35),inset 0 0 0 1px rgba(0,0,0,.08),0 12px 32px rgba(0,0,0,.14);
+  display:flex;flex-direction:column;gap:16px;transform:translateY(16px);opacity:0;transition:opacity .35s,transform .35s}
+.cookie.show{opacity:1;transform:none}
+.cookie.glass{background:rgba(255,255,255,.6)}
+.cookie[hidden]{display:none}
+.cookie p{margin:0;font-size:16px;line-height:1.5}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie .btn{min-height:44px;padding:0 20px;font-size:15px}
+.btn-ghost{background:transparent;color:var(--black)}
+.btn-ghost:hover{background:var(--black);color:var(--white)}
+.foot{border-top:0;padding-top:0}
+
+
+/* Work hover preview */
+.work-preview{position:fixed;left:0;top:0;width:300px;height:300px;border-radius:6px;background:#000;pointer-events:none;z-index:1;opacity:0;transform:translate3d(-999px,-999px,0) scale(.85);transition:opacity .25s,width .45s cubic-bezier(.65,0,.35,1),height .45s cubic-bezier(.65,0,.35,1),background-color .45s;will-change:transform}
+.work-preview.on{opacity:1}
+@media (hover:none),(prefers-reduced-motion:reduce){.work-preview{display:none}}
+
+/* Cursor */
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:100;opacity:0;transition:width .2s,height .2s,margin .2s,opacity .2s;will-change:transform}
+.cursor.on{opacity:1}
+.cursor.big{width:44px;height:44px;margin:-22px 0 0 -22px}
+@media (hover:hover) and (pointer:fine){
+  html.has-cursor,html.has-cursor *{cursor:none!important}
+}
+
+/* Responsive */
+@media (max-width:1100px){
+  .packs{grid-template-columns:1fr}
+  .grant-intro,.grant-list,.proposal h2,.proposal-side,.contact-main,.contact-side{grid-column:1 / -1}
+  .nav-links a:not(.btn){display:none}
+}
+@media (max-width:760px){
+  .tl{grid-template-columns:1fr}
+  .tl-mark{display:none}
+  .tl-block,.tl-demand{grid-column:1 / -1;margin-right:0}
+  .tl-demand{flex-direction:column;align-items:flex-start;gap:6px}
+  .tl-block::before{font-size:13px;font-weight:600;color:inherit;opacity:.7}
+  .tl-proposal::before{content:"Proposal"}
+  .tl-launch::before{content:"Months 1 to 3"}
+  .tl-ongoing::before{content:"Month 3 to final review"}
+  .work-name,.work-desc,.work-type{grid-column:1 / -1;text-align:left}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .marquee-track{animation:none}
+  .work-row,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gasp" viewBox="0 0 428.89 428.89">
+    <path d="M214.45,428.89c-57.28,0-111.13-22.31-151.64-62.81C22.31,325.58,0,271.73,0,214.45S22.31,103.31,62.81,62.81C103.31,22.31,157.17,0,214.45,0s111.13,22.31,151.64,62.81c40.5,40.5,62.81,94.36,62.81,151.64s-22.31,111.13-62.81,151.64c-40.5,40.5-94.36,62.81-151.64,62.81ZM214.45,40c-96.19,0-174.45,78.26-174.45,174.45s78.26,174.45,174.45,174.45,174.45-78.26,174.45-174.45S310.64,40,214.45,40Z"/>
+    <path d="M285.71,258.02c-39.68,0-78.43-10.92-112.08-31.59l20.93-34.08c27.35,16.8,58.87,25.68,91.15,25.68,40.36,0,78.24-13.38,109.56-38.69l25.14,31.11c-37.96,30.68-85.8,47.58-134.7,47.58Z"/>
+    <path d="M195.14,346.32l-20.8-34.17c33.48-20.38,71.99-31.15,111.37-31.15,34.34,0,68.51,8.32,98.79,24.07l-18.45,35.49c-24.96-12.98-51.99-19.56-80.34-19.56-32.04,0-63.36,8.76-90.57,25.32Z"/>
+    <rect x="164.75" y="148.72" width="40" height="258.46"/>
+    <polygon points="52.04 317.22 29.1 284.45 88.97 242.53 88.97 51.21 128.97 51.21 128.97 263.35 52.04 317.22"/>
+    <rect x="85.51" y="105.42" width="259.12" height="40" transform="translate(-33.04 146.04) rotate(-35)"/>
+  </symbol>
+</svg>
+
+<!-- Liquid glass filter: displacement map + per-channel chromatic aberration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="glass-filter" x="0" y="0" width="100%" height="100%" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feImage id="fmap" href="" x="0" y="0" width="100" height="100" preserveAspectRatio="none" result="map"/>
+    <feDisplacementMap id="dR" in="SourceGraphic" in2="map" scale="66" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
+    <feColorMatrix in="dispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="R"/>
+    <feDisplacementMap id="dG" in="SourceGraphic" in2="map" scale="60" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
+    <feColorMatrix in="dispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="G"/>
+    <feDisplacementMap id="dB" in="SourceGraphic" in2="map" scale="54" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
+    <feColorMatrix in="dispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="B"/>
+    <feBlend in="R" in2="G" mode="screen" result="RG"/>
+    <feBlend in="RG" in2="B" mode="screen" result="out"/>
+    <feGaussianBlur in="out" stdDeviation="1.5"/>
+  </filter>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="THE GASP COMPANY, back to top">
+      <svg class="logo" width="40" height="40"><use href="#gasp"/></svg>
+      <span>THE GASP COMPANY®</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#grant">Grant Agreement</a>
+      <a href="#packages">Packages</a>
+      <a href="#proposal">Proposals</a>
+      <a href="#work">Work</a>
+      <a class="btn btn-solid" href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <h1 class="h1">Your communication,<br> in good hands</h1>
+    <div class="hero-row">
+      <p class="lead">A science communication and design studio for Horizon Europe projects. We set up your strategy, visual identity and dissemination materials in the first three months, and keep your communication running until the final review.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#contact">Book a 20-minute call</a>
+        <a class="btn btn-line" href="#packages">See the packages</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap timeline" aria-label="Where we come in during a Horizon Europe project">
+    <div class="tl">
+      <div class="tl-mark c2">Proposal</div>
+      <div class="tl-mark c3">Month 1</div>
+      <div class="tl-mark c5">Month 3</div>
+      <div class="tl-mark c2" style="text-align:right">Final review</div>
+
+      <div class="tl-block tl-proposal c2"><b>Budget line</b><small>Tasks and costs written into Part B</small></div>
+      <div class="tl-block tl-launch c3"><b>Launch kit</b><small>Strategy, identity, website, dissemination kit</small></div>
+      <div class="tl-block tl-ongoing c7"><b>Ongoing support</b><small>Content, social media, reporting evidence, updates to the website</small></div>
+      <div class="tl-block tl-demand"><b>On demand</b><small>Video, events, data visualisation</small></div>
+    </div>
+  </section>
+
+  <section id="grant" class="grant">
+    <div class="wrap split">
+      <div class="grant-intro">
+        <h2 class="h2">Built around your Grant Agreement</h2>
+        <p class="body">Communication in Horizon Europe is a contractual obligation, not a nice-to-have. We know what reviewers and project officers look for, so every piece we make is ready to be reported.</p>
+      </div>
+      <ul class="grant-list">
+        <li><h3 class="h3">EU visibility on everything</h3><p>Emblem, funding statement and disclaimer applied correctly across the website, templates, posters and social media.</p></li>
+        <li><h3 class="h3">Communication and dissemination plan</h3><p>Audiences, messages, channels and indicators, written so it can go straight into your early deliverable.</p></li>
+        <li><h3 class="h3">Accessible by default</h3><p>Websites built to WCAG 2.1 AA, with plain-language summaries of your research for non-specialist audiences.</p></li>
+        <li><h3 class="h3">Evidence for periodic reports</h3><p>Reach, outputs and activities logged as we go, so reporting takes an afternoon instead of a week.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap sec">
+    <div class="sec-head">
+      <h2 class="h2">Three ways to work together</h2>
+      <p class="body">Start with the launch kit. Add ongoing support or one-off pieces when the project needs them.</p>
+    </div>
+    <div class="packs">
+      <article class="pack pack-dark">
+        <div><h3>Launch kit</h3><p class="when">Months 1 to 3</p></div>
+        <p class="price">€10,000 <small>fixed price</small></p>
+        <ul>
+          <li>Communication strategy and plan</li>
+          <li>Visual identity for the project</li>
+          <li>Project website, accessible and bilingual</li>
+          <li>Dissemination kit: slides, poster, leaflet, roll-up</li>
+          <li>EU visibility checked on every item</li>
+        </ul>
+      </article>
+      <article class="pack pack-grey">
+        <div><h3>Ongoing support</h3><p class="when">Month 3 to final review</p></div>
+        <p class="price">[€ / month] <small>monthly fee</small></p>
+        <ul>
+          <li>News and results written for the public</li>
+          <li>Social media content</li>
+          <li>Website updates and maintenance</li>
+          <li>Indicators and evidence for each reporting period</li>
+        </ul>
+      </article>
+      <article class="pack pack-line">
+        <div><h3>On demand</h3><p class="when">When the project needs it</p></div>
+        <p class="price">Quoted <small>per piece</small></p>
+        <ul>
+          <li>Research video and explainers</li>
+          <li>Events, conferences and policy briefings</li>
+          <li>Data visualisation and infographics</li>
+          <li>Stakeholder and policy materials</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="proposal" class="proposal">
+    <div class="wrap split" style="align-items:end">
+      <h2 class="h2-xl">Writing a proposal? Budget communication in now.</h2>
+      <div class="proposal-side">
+        <p>Name us as a subcontractor in your communication and dissemination work package. We send you a task description and a quote you can paste into Part B, so the money is there on day one.</p>
+        <a class="btn btn-white" href="#contact">Ask for a proposal quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap sec">
+    <div class="sec-head">
+      <h2 class="h2">Recent research projects</h2>
+    </div>
+    <div class="work-list">
+      <a class="work-row" data-color="#ff5a36" data-w="300" data-h="300" href="/work/apoyo-65/"><span class="work-name">APOYO 65</span><span class="work-desc">Loneliness and wellbeing among older people in Spain</span><span class="work-type">Universidad Complutense de Madrid</span></a>
+      <a class="work-row" data-color="#3d5afe" data-w="460" data-h="280" href="/work/corelin/"><span class="work-name">CORELIN</span><span class="work-desc">Religiosity and social integration of immigrants in Spain</span><span class="work-type">UNED</span></a>
+      <a class="work-row" data-color="#f2c94c" data-w="240" data-h="340" href="/work/endiversidad55/"><span class="work-name">ENDIVERSIDAD55+</span><span class="work-desc">Ageing, loneliness and diversity among older Latin American migrants</span><span class="work-type">Universidad Complutense de Madrid</span></a>
+      <a class="work-row" data-color="#2bb673" data-w="360" data-h="220" href="/work/pbis/"><span class="work-name">PBiS</span><span class="work-desc">School coexistence and early detection of relational risk</span><span class="work-type">Universidad Loyola</span></a>
+      <a class="work-row" data-color="#b9a7f5" data-w="320" data-h="400" href="/work/espacio-niif/"><span class="work-name">Espacio NIIF</span><span class="work-desc">Accounting standardisation observatory, funded by FECYT</span><span class="work-type">Universidad Loyola</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact" class="footer">
+  <div class="wrap split contact">
+    <div class="contact-main">
+      <h2>Tell us about your project</h2>
+      <p>Send the acronym or the CORDIS link. We reply within two working days with a first idea of scope and cost.</p>
+    </div>
+    <div class="contact-side">
+      <a class="btn btn-white" href="mailto:info@thegasp.eu?subject=Horizon%20Europe%20project">Book a 20-minute call</a>
+      <a href="mailto:info@thegasp.eu">info@thegasp.eu</a>
+    </div>
+  </div>
+  <section class="marquee" aria-label="THE GASP COMPANY">
+    <div class="marquee-track" aria-hidden="true">
+      <div class="marquee-group">
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+      </div>
+      <div class="marquee-group">
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+        <span class="marquee-item"><span>THE GASP COMPANY®</span><svg class="logo" viewBox="0 0 428.89 428.89"><use href="#gasp"/></svg></span>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><svg class="logo" width="32" height="32"><use href="#gasp"/></svg><span>THE GASP COMPANY®</span></a>
+      <span>©2022 – 2026 Javier González-Jurado · THE GASP COMPANY®. All rights reserved.</span>
+      <button type="button" class="legal-link" data-open-privacy>Privacy policy / Cookies</button>
+    </div>
+  </div>
+</footer>
+
+<dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+  <div class="privacy-in">
+    <div class="privacy-head">
+      <h2 id="privacy-title">Privacy policy and cookies</h2>
+      <button type="button" class="x" data-close-privacy aria-label="Close">×</button>
+    </div>
+    <small>Last updated: September 2026</small>
+
+    <h3>Who is responsible</h3>
+    <p>This website is run by Javier González-Jurado, trading as THE GASP COMPANY®, based in Madrid, Spain. For any question about privacy, write to <a href="mailto:info@thegasp.eu">info@thegasp.eu</a>.</p>
+
+    <h3>We don’t collect personal data</h3>
+    <p>This site has no forms, no user accounts, no analytics and no advertising. We don’t track your visit, build profiles or share anything with third parties. The fonts and images are served from this site, so your browser doesn’t connect to Google or any other external service to display it.</p>
+
+    <h3>If you email us</h3>
+    <p>If you write to info@thegasp.eu, we use your name, email address and whatever you tell us only to reply and, if we end up working together, to prepare a quote or contract. We don’t add you to any mailing list. You can ask us to delete that correspondence at any time.</p>
+
+    <h3>Hosting</h3>
+    <p>The site is hosted on GitHub Pages. Like any web server, GitHub may record technical data such as your IP address in its logs for security and to keep the service running. We don’t have access to those logs and don’t use them. See GitHub’s privacy statement for details.</p>
+
+    <h3>Cookies</h3>
+    <p>This site doesn’t use cookies. The only thing it stores is a small note in your browser’s local storage to remember that you closed the cookie notice, so it doesn’t appear again. It contains no personal information and never leaves your device. You can delete it by clearing your browser data.</p>
+
+    <h3>Your rights</h3>
+    <p>Under the GDPR you can ask to access, correct or delete any personal data we hold about you, or object to its use, by writing to info@thegasp.eu. You can also complain to the Spanish Data Protection Agency (Agencia Española de Protección de Datos, aepd.es).</p>
+  </div>
+</dialog>
+
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice" hidden>
+  <p>This site doesn’t use cookies or track your visit. Nothing to accept.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-solid" data-close-cookie>Got it</button>
+    <button type="button" class="btn btn-ghost" data-open-privacy>Read the policy</button>
+  </div>
+</div>
+
+<div class="work-preview" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+
+<script>
+(function(){
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var dot=document.querySelector('.cursor');
+  document.documentElement.classList.add('has-cursor');
+  var x=-100,y=-100,ticking=false;
+  function paint(){dot.style.transform='translate3d('+x+'px,'+y+'px,0)';ticking=false;}
+  document.addEventListener('mousemove',function(e){
+    x=e.clientX;y=e.clientY;
+    dot.classList.add('on');
+    dot.classList.toggle('big',!!(e.target.closest&&e.target.closest('a,button')));
+    if(!ticking){ticking=true;requestAnimationFrame(paint);}
+  });
+  document.addEventListener('mouseleave',function(){dot.classList.remove('on');});
+  document.addEventListener('mouseenter',function(){dot.classList.add('on');});
+})();
+</script>
+<script>
+/* Liquid glass (Chromium only: other browsers can't use SVG filters in backdrop-filter, so they keep the frosted fallback) */
+window.gaspGlass=(function(){
+  var ok=!!(navigator.userAgentData&&navigator.userAgentData.brands&&navigator.userAgentData.brands.some(function(b){return /Chromium/.test(b.brand);}));
+  var tpl=document.getElementById('glass-filter'), n=0, DEPTH=16;
+  function map(w,h,r){
+    var hw=w/2,hh=h/2,c=document.createElement('canvas');c.width=w;c.height=h;
+    var ctx=c.getContext('2d'),img=ctx.createImageData(w,h),d=img.data;
+    function sdf(px,py){var qx=Math.abs(px)-(hw-r),qy=Math.abs(py)-(hh-r);return Math.hypot(Math.max(qx,0),Math.max(qy,0))+Math.min(Math.max(qx,qy),0)-r;}
+    for(var y=0;y<h;y++){for(var x=0;x<w;x++){
+      var px=x-hw+.5,py=y-hh+.5,dist=sdf(px,py);
+      var gx=sdf(px+1,py)-sdf(px-1,py),gy=sdf(px,py+1)-sdf(px,py-1),gl=Math.hypot(gx,gy)||1;
+      var t=1-Math.min(Math.max(-dist/DEPTH,0),1);t=t*t*(3-2*t);
+      var a=dist<0?t:0,i=(y*w+x)*4;
+      d[i]=128+gx/gl*a*127;d[i+1]=128+gy/gl*a*127;d[i+2]=128;d[i+3]=255;
+    }}
+    ctx.putImageData(img,0,0);return c.toDataURL();
+  }
+  function attach(el,pre){
+    if(!ok) return;
+    var f=tpl.cloneNode(true), id='glass-filter-'+(++n); f.id=id; tpl.parentNode.appendChild(f);
+    var img=f.querySelector('feImage');
+    function build(){
+      var w=Math.round(el.offsetWidth),h=Math.round(el.offsetHeight); if(!w||!h) return;
+      var r=Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius)||0,h/2,w/2);
+      img.setAttribute('href',map(w,h,r));img.setAttribute('width',w);img.setAttribute('height',h);
+      el.classList.add('glass');
+      el.style.backdropFilter=el.style.webkitBackdropFilter=(pre?pre+' ':'')+'url(#'+id+')';
+    }
+    var tid;window.addEventListener('resize',function(){clearTimeout(tid);tid=setTimeout(build,150);});
+    build(); return build;
+  }
+  return {attach:attach};
+})();
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){
+  gaspGlass.attach(document.querySelector('.nav'));
+});
+
+/* Privacy modal */
+(function(){
+  var dlg=document.getElementById('privacy');
+  document.querySelectorAll('[data-open-privacy]').forEach(function(b){b.addEventListener('click',function(){dlg.showModal();});});
+  dlg.querySelector('[data-close-privacy]').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
+})();
+
+/* Cookie notice */
+(function(){
+  var box=document.getElementById('cookie'), KEY='gasp-cookie-notice';
+  var seen=false; try{seen=localStorage.getItem(KEY)==='closed';}catch(e){}
+  if(seen) return;
+  box.hidden=false;
+  setTimeout(function(){
+    box.classList.add('show');
+    if(window.gaspGlass) gaspGlass.attach(box,'blur(8px)');
+  },600);
+  box.querySelector('[data-close-cookie]').addEventListener('click',function(){
+    try{localStorage.setItem(KEY,'closed');}catch(e){}
+    box.classList.remove('show');
+    setTimeout(function(){box.hidden=true;},350);
+  });
+})();
+</script>
+<script>
+/* Hover preview boxes in "Recent research projects" */
+(function(){
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var list=document.querySelector('.work-list'), box=document.querySelector('.work-preview');
+  if(!list||!box) return;
+  var w=300,h=300,mx=0,my=0,x=0,y=0,s=.85,active=false,raf=null,GAP=28;
+  function target(){
+    var tx=mx+GAP; if(tx+w>window.innerWidth-16) tx=mx-GAP-w;
+    var ty=Math.min(Math.max(my-h/2,16),window.innerHeight-h-16);
+    return [tx,ty];
+  }
+  function loop(){
+    var t=target(); x+=(t[0]-x)*.18; y+=(t[1]-y)*.18; s+=((active?1:.85)-s)*.18;
+    box.style.transform='translate3d('+x+'px,'+y+'px,0) scale('+s+')';
+    if(active||Math.abs(s-.85)>.005){raf=requestAnimationFrame(loop);}else{raf=null;}
+  }
+  list.querySelectorAll('.work-row').forEach(function(row){
+    row.addEventListener('mouseenter',function(e){
+      w=+row.dataset.w; h=+row.dataset.h;
+      box.style.width=w+'px'; box.style.height=h+'px'; box.style.backgroundColor=row.dataset.color;
+      if(!active){mx=e.clientX;my=e.clientY;var t=target();x=t[0];y=t[1];}
+      active=true; box.classList.add('on');
+      if(!raf) raf=requestAnimationFrame(loop);
+    });
+  });
+  list.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+  list.addEventListener('mouseleave',function(){active=false;box.classList.remove('on');});
+})();
+</script>
+</body>
+</html>

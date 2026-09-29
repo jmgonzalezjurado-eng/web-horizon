@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- TODO: remove noindex when the case study is finished -->
+<meta name="robots" content="noindex">
+<title>PBiS · Case study · THE GASP COMPANY®</title>
+<!-- TODO: favicon, meta description, og:image -->
+<link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{--pad:clamp(20px,5.5vw,80px);box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{margin:0;display:flex;flex-direction:column;background:#fff;color:#000;font-family:'Neue Montreal','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.wrap{padding-inline:var(--pad)}
+.logo{fill:currentColor;display:block;flex-shrink:0}
+.nav{position:sticky;top:calc(12px + env(safe-area-inset-top,0px));z-index:20;margin:12px var(--pad) 0;border-radius:36px;background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 0 0 1px rgba(0,0,0,.08),0 12px 32px rgba(0,0,0,.12)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;padding-inline:clamp(14px,1.8vw,28px) clamp(10px,1vw,14px)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;font-size:17px;font-weight:700}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:16px}
+.nav-links a:not(.btn){text-decoration:none}
+.nav-links a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:22px;font-size:16px;font-weight:600;text-decoration:none;border:1.5px solid #000;background:#000;color:#fff}
+.btn:hover{background:#fff;color:#000}
+main{flex:1;padding-block:clamp(72px,9vw,120px);display:flex;flex-direction:column;gap:28px}
+.uni{font-size:18px;color:#595959;margin:0}
+h1{margin:0;font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
+.desc{margin:0;max-width:40ch;font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:#3d3d3d}
+.soon{margin-top:24px;padding:28px 0;border-top:1px solid #000;border-bottom:1px solid #000;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:18px}
+footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:15px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#fff}
+@media (max-width:760px){.nav-links a:not(.btn){display:none}.brand span{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gasp" viewBox="0 0 428.89 428.89">
+    <path d="M214.45,428.89c-57.28,0-111.13-22.31-151.64-62.81C22.31,325.58,0,271.73,0,214.45S22.31,103.31,62.81,62.81C103.31,22.31,157.17,0,214.45,0s111.13,22.31,151.64,62.81c40.5,40.5,62.81,94.36,62.81,151.64s-22.31,111.13-62.81,151.64c-40.5,40.5-94.36,62.81-151.64,62.81ZM214.45,40c-96.19,0-174.45,78.26-174.45,174.45s78.26,174.45,174.45,174.45,174.45-78.26,174.45-174.45S310.64,40,214.45,40Z"/>
+    <path d="M285.71,258.02c-39.68,0-78.43-10.92-112.08-31.59l20.93-34.08c27.35,16.8,58.87,25.68,91.15,25.68,40.36,0,78.24-13.38,109.56-38.69l25.14,31.11c-37.96,30.68-85.8,47.58-134.7,47.58Z"/>
+    <path d="M195.14,346.32l-20.8-34.17c33.48-20.38,71.99-31.15,111.37-31.15,34.34,0,68.51,8.32,98.79,24.07l-18.45,35.49c-24.96-12.98-51.99-19.56-80.34-19.56-32.04,0-63.36,8.76-90.57,25.32Z"/>
+    <rect x="164.75" y="148.72" width="40" height="258.46"/>
+    <polygon points="52.04 317.22 29.1 284.45 88.97 242.53 88.97 51.21 128.97 51.21 128.97 263.35 52.04 317.22"/>
+    <rect x="85.51" y="105.42" width="259.12" height="40" transform="translate(-33.04 146.04) rotate(-35)"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="THE GASP COMPANY, home"><svg class="logo" width="40" height="40"><use href="#gasp"/></svg><span>THE GASP COMPANY®</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#work">All projects</a>
+      <a href="/#packages">Packages</a>
+      <a class="btn" href="mailto:info@thegasp.eu?subject=Horizon%20Europe%20project">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="uni">Universidad Loyola</p>
+  <h1>PBiS</h1>
+  <p class="desc">School coexistence and early detection of relational risk</p>
+  <div class="soon">
+    <span>Full case study coming soon.</span>
+    <a href="/#work">Back to all projects</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/"><svg class="logo" width="32" height="32"><use href="#gasp"/></svg><span>THE GASP COMPANY®</span></a>
+    <span>©2022 – 2026 Javier González-Jurado · THE GASP COMPANY®. All rights reserved.</span>
+    <a href="/#work" style="color:#fff">Back to all projects</a>
+  </div>
+</footer>
+</body>
+</html>
