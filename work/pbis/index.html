@@ -6,7 +6,8 @@
 <!-- TODO: remove noindex when the case study is finished -->
 <meta name="robots" content="noindex">
 <title>PBiS · Case study · THE GASP COMPANY®</title>
-<!-- TODO: favicon, meta description, og:image -->
+<!-- TODO: meta description, og:image -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:'Neue Montreal';src:url('/fonts/NeueMontreal-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
@@ -36,6 +37,13 @@ h1{margin:0;font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;le
 footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:15px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot .brand{color:#fff}
+/* Cursor */
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:100;opacity:0;transition:width .2s,height .2s,margin .2s,opacity .2s;will-change:transform}
+.cursor.on{opacity:1}
+.cursor.big{width:44px;height:44px;margin:-22px 0 0 -22px}
+@media (hover:hover) and (pointer:fine){
+  html.has-cursor,html.has-cursor *{cursor:none!important}
+}
 @media (max-width:760px){.nav-links a:not(.btn){display:none}.brand span{display:none}}
 </style>
 </head>
@@ -79,5 +87,24 @@ footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-are
     <a href="/#work" style="color:#fff">Back to all projects</a>
   </div>
 </footer>
+<div class="cursor" aria-hidden="true"></div>
+
+<script>
+(function(){
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var dot=document.querySelector('.cursor');
+  document.documentElement.classList.add('has-cursor');
+  var x=-100,y=-100,ticking=false;
+  function paint(){dot.style.transform='translate3d('+x+'px,'+y+'px,0)';ticking=false;}
+  document.addEventListener('mousemove',function(e){
+    x=e.clientX;y=e.clientY;
+    dot.classList.add('on');
+    dot.classList.toggle('big',!!(e.target.closest&&e.target.closest('a,button')));
+    if(!ticking){ticking=true;requestAnimationFrame(paint);}
+  });
+  document.addEventListener('mouseleave',function(){dot.classList.remove('on');});
+  document.addEventListener('mouseenter',function(){dot.classList.add('on');});
+})();
+</script>
 </body>
 </html>
