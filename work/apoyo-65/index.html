@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- TODO: remove noindex when the case study is finished -->
 <meta name="robots" content="noindex">
-<title>APOYO 65 · Case study · THE GASP COMPANY®</title>
-<!-- TODO: meta description, og:image -->
+<title>APOYO+65 · Case study · THE GASP COMPANY®</title>
+<meta name="description" content="Visual identity, website and events for APOYO+65, a Universidad Complutense de Madrid research project on loneliness and wellbeing among older people in Spain.">
+<meta property="og:title" content="APOYO+65 · Case study · THE GASP COMPANY®">
+<meta property="og:description" content="Visual identity, website and events for a research project on loneliness among older people in Spain.">
+<meta property="og:image" content="https://horizon-europe.thegasp.eu/work/apoyo-65/img/logo.webp">
+<meta property="og:type" content="article">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -29,11 +33,38 @@ a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 .nav-links a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:22px;font-size:16px;font-weight:600;text-decoration:none;border:1.5px solid #000;background:#000;color:#fff}
 .btn:hover{background:#fff;color:#000}
-main{flex:1;padding-block:clamp(72px,9vw,120px);display:flex;flex-direction:column;gap:28px}
-.uni{font-size:18px;color:#595959;margin:0}
-h1{margin:0;font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
-.desc{margin:0;max-width:40ch;font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:#3d3d3d}
-.soon{margin-top:24px;padding:28px 0;border-top:1px solid #000;border-bottom:1px solid #000;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:18px}
+main{flex:1}
+h1,h2,p,figure{margin:0}
+img,video{display:block;width:100%;height:auto}
+/* Case study */
+.cs{--olive:#a6a85e;--ink:#1f3a36}
+.cs-hero{padding-block:clamp(72px,9vw,120px) clamp(48px,5vw,72px);display:flex;flex-direction:column;gap:28px}
+.uni{font-size:18px;color:#595959}
+h1{font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
+.lead{max-width:40ch;font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:#3d3d3d}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:24px;padding-top:24px;border-top:1px solid #000;font-size:17px;line-height:1.45}
+.facts dt{font-size:15px;color:#595959;margin-bottom:6px}
+.facts dd{margin:0}
+.media{border-radius:10px;overflow:hidden;background:var(--olive)}
+.media.light{background:#f4f4f4}
+.cs-sec{padding-block:clamp(72px,9vw,120px) 0;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)}
+.cs-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:20px;align-items:start}
+.cs-head .num{grid-column:span 2;font-size:15px;font-weight:600;padding-top:.6em}
+.cs-head h2{grid-column:span 4;font-size:clamp(34px,3.7vw,54px);line-height:1.03;font-weight:500;letter-spacing:-.02em}
+.cs-head p{grid-column:8 / span 5;font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:#3d3d3d}
+.stack{display:flex;flex-direction:column;gap:24px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.next{padding-block:clamp(48px,6vw,80px);border-top:1px solid #000;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;text-decoration:none}
+.next small{display:block;font-size:15px;color:#595959;margin-bottom:10px}
+.next b{font-size:clamp(40px,5.2vw,80px);line-height:.98;font-weight:500;letter-spacing:-.03em}
+.next:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.visit{padding-block:clamp(48px,6vw,80px)}
+.btn-lg{min-height:56px;padding:0 28px;border-radius:28px;font-size:17px}
+@media (max-width:900px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cs-head .num,.cs-head h2,.cs-head p{grid-column:1 / -1}
+  .pair{grid-template-columns:1fr}
+}
 footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:15px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot .brand{color:#fff}
@@ -70,13 +101,69 @@ footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-are
   </div>
 </header>
 
-<main class="wrap">
-  <p class="uni">Universidad Complutense de Madrid</p>
-  <h1>APOYO 65</h1>
-  <p class="desc">Loneliness and wellbeing among older people in Spain</p>
-  <div class="soon">
-    <span>Full case study coming soon.</span>
-    <a href="https://apoyo65.es">Visit apoyo65.es</a>
+<main class="cs">
+  <section class="wrap cs-hero">
+    <p class="uni">Universidad Complutense de Madrid</p>
+    <h1>APOYO+65</h1>
+    <p class="lead">Loneliness and wellbeing among older people in Spain: COVID-19 and social support networks in times of uncertainty.</p>
+    <dl class="facts">
+      <div><dt>Client</dt><dd>Universidad Complutense de Madrid</dd></div>
+      <div><dt>Year</dt><dd>2024</dd></div>
+      <div><dt>Services</dt><dd>Identity, website, events</dd></div>
+      <div><dt>Website</dt><dd><a href="https://apoyo65.es">apoyo65.es</a></dd></div>
+    </dl>
+  </section>
+
+  <div class="wrap">
+    <figure class="media"><img src="img/logo.webp" width="2400" height="1473" alt="APOYO+65 logo in dark green on an olive background, with the full project title"></figure>
+  </div>
+
+  <section class="wrap cs-sec" aria-labelledby="identity">
+    <div class="cs-head">
+      <span class="num">01</span>
+      <h2 id="identity">Identity</h2>
+      <p>The symbol tells the project in one drawing: a person, someone who keeps them company, and a flower for wellbeing. Friendly line characters and a warm olive palette move a hard subject away from clinical imagery, and carry through to the charts that share the research findings.</p>
+    </div>
+    <div class="stack">
+      <figure class="media"><img src="img/symbol.webp" width="2400" height="1473" loading="lazy" alt="The APOYO+65 symbol broken down into three parts: person, accompaniment and well-being"></figure>
+      <figure class="media"><img src="img/data.webp" width="2400" height="1473" loading="lazy" alt="Bar charts and network diagrams of the survey results on loneliness, in the project colours"></figure>
+    </div>
+  </section>
+
+  <section class="wrap cs-sec" aria-labelledby="website">
+    <div class="cs-head">
+      <span class="num">02</span>
+      <h2 id="website">Website</h2>
+      <p>apoyo65.es brings together the project, its publications and its events. Each publication has its own character illustration, so readers find their way through the research at a glance.</p>
+    </div>
+    <div class="stack">
+      <figure class="media light"><video src="img/website-mockup.mp4" poster="img/website-mockup.webp" width="1920" height="1178" autoplay muted loop playsinline preload="metadata" aria-label="The apoyo65.es website on a laptop, scrolling through the publications"></video></figure>
+      <figure class="media light"><video src="img/website-scroll.mp4" poster="img/website-scroll.webp" width="1920" height="1034" autoplay muted loop playsinline preload="metadata" aria-label="Scrolling through the publications and events sections of apoyo65.es"></video></figure>
+    </div>
+  </section>
+
+  <section class="wrap cs-sec" aria-labelledby="events">
+    <div class="cs-head">
+      <span class="num">03</span>
+      <h2 id="events">Events</h2>
+      <p>Three public conferences on loneliness in ageing, each with its own illustrated poster, screen graphics, roll-up and branded materials. Every session was recorded and published on the project's YouTube channel.</p>
+    </div>
+    <div class="stack">
+      <figure class="media" style="background:#000"><img src="img/posters.webp" width="2400" height="1473" loading="lazy" alt="Posters for the three APOYO+65 conferences: Dimensiones de la soledad, Envejecimiento y soledad, and Las soledades en el envejecimiento"></figure>
+      <div class="pair">
+        <figure class="media"><img src="img/event-room.webp" width="2400" height="1473" loading="lazy" alt="Conference room with the APOYO+65 roll-up and the event graphics on the projection screen"></figure>
+        <figure class="media"><img src="img/event-speakers.webp" width="2400" height="1473" loading="lazy" alt="Speakers and organisers of the Envejecimiento y soledad conference in front of the project roll-up"></figure>
+      </div>
+      <div class="pair">
+        <figure class="media light"><img src="img/youtube.webp" width="2400" height="1473" loading="lazy" alt="The APOYO+65 YouTube channel with the three recorded conferences"></figure>
+        <figure class="media light" style="background:#fff"><img src="img/merch.webp" width="2400" height="1473" loading="lazy" alt="Black notebook and pen printed with the APOYO+65 logo"></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="visit"><a class="btn btn-lg" href="https://apoyo65.es">Visit apoyo65.es</a></div>
+    <a class="next" href="/work/corelin/"><span><small>Next project</small><b>CORELIN</b></span><span aria-hidden="true" style="font-size:clamp(32px,4vw,56px)">→</span></a>
   </div>
 </main>
 
@@ -105,6 +192,11 @@ footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-are
   document.addEventListener('mouseleave',function(){dot.classList.remove('on');});
   document.addEventListener('mouseenter',function(){dot.classList.add('on');});
 })();
+</script>
+<script>
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true;});
+}
 </script>
 </body>
 </html>
