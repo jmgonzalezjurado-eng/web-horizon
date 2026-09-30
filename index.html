@@ -446,6 +446,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   function paint(){dot.style.transform='translate3d('+x+'px,'+y+'px,0)';ticking=false;}
   document.addEventListener('mousemove',function(e){
     x=e.clientX;y=e.clientY;
+    // Modal dialogs sit in the top layer above any z-index, so the dot has to live inside the open one
+    var host=document.querySelector('dialog[open]')||document.body;
+    if(dot.parentNode!==host) host.appendChild(dot);
     dot.classList.add('on');
     dot.classList.toggle('big',!!(e.target.closest&&e.target.closest('a,button')));
     if(!ticking){ticking=true;requestAnimationFrame(paint);}
