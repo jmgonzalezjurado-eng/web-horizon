@@ -456,7 +456,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 <script>
 /* Liquid glass (Chromium only: other browsers can't use SVG filters in backdrop-filter, so they keep the frosted fallback) */
 window.gaspGlass=(function(){
-  var ok=!!(navigator.userAgentData&&navigator.userAgentData.brands&&navigator.userAgentData.brands.some(function(b){return /Chromium/.test(b.brand);}));
+  var uad=navigator.userAgentData;
+  // userAgentData only exists on HTTPS, so fall back to the user-agent string (Chrome, Edge, Opera, Brave; not iOS, which is WebKit)
+  var ok=!!((uad&&uad.brands&&uad.brands.some(function(b){return /Chromium/.test(b.brand);}))||/\bChrome\/\d+/.test(navigator.userAgent));
   var tpl=document.getElementById('glass-filter'), n=0, DEPTH=16;
   function map(w,h,r){
     var hw=w/2,hh=h/2,c=document.createElement('canvas');c.width=w;c.height=h;
