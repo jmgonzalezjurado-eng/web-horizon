@@ -175,7 +175,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 
 
 /* Work hover preview */
-.work-preview{position:fixed;left:0;top:0;width:300px;height:300px;border-radius:6px;background:#000;pointer-events:none;z-index:1;opacity:0;transform:translate3d(-999px,-999px,0) scale(.85);transition:opacity .25s,width .45s cubic-bezier(.65,0,.35,1),height .45s cubic-bezier(.65,0,.35,1),background-color .45s;will-change:transform}
+.work-preview{position:fixed;left:0;top:0;width:300px;height:300px;border-radius:6px;background:#000 center/cover no-repeat;pointer-events:none;z-index:1;opacity:0;transform:translate3d(-999px,-999px,0) scale(.85);transition:opacity .25s,width .45s cubic-bezier(.65,0,.35,1),height .45s cubic-bezier(.65,0,.35,1),background-color .45s;will-change:transform}
 .work-preview.on{opacity:1}
 @media (hover:none),(prefers-reduced-motion:reduce){.work-preview{display:none}}
 
@@ -354,7 +354,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
       <h2 class="h2">Recent research projects</h2>
     </div>
     <div class="work-list">
-      <a class="work-row" data-color="#a6a85e" data-w="300" data-h="300" href="/work/apoyo-65/"><span class="work-name">APOYO 65</span><span class="work-desc">Loneliness and wellbeing among older people in Spain</span><span class="work-type">Universidad Complutense de Madrid</span></a>
+      <a class="work-row" data-color="#a6a85e" data-img="/work/apoyo-65/img/logo.webp" data-w="400" data-h="246" href="/work/apoyo-65/"><span class="work-name">APOYO 65</span><span class="work-desc">Loneliness and wellbeing among older people in Spain</span><span class="work-type">Universidad Complutense de Madrid</span></a>
       <a class="work-row" data-color="#3d5afe" data-w="460" data-h="280" href="/work/corelin/"><span class="work-name">CORELIN</span><span class="work-desc">Religiosity and social integration of immigrants in Spain</span><span class="work-type">UNED</span></a>
       <a class="work-row" data-color="#f2c94c" data-w="240" data-h="340" href="/work/endiversidad55/"><span class="work-name">ENDIVERSIDAD55+</span><span class="work-desc">Ageing, loneliness and diversity among older Latin American migrants</span><span class="work-type">Universidad Complutense de Madrid</span></a>
       <a class="work-row" data-color="#2bb673" data-w="360" data-h="220" href="/work/pbis/"><span class="work-name">PBiS</span><span class="work-desc">School coexistence and early detection of relational risk</span><span class="work-type">Universidad Loyola</span></a>
@@ -537,10 +537,13 @@ window.gaspGlass=(function(){
     box.style.transform='translate3d('+x+'px,'+y+'px,0) scale('+s+')';
     if(active||Math.abs(s-.85)>.005){raf=requestAnimationFrame(loop);}else{raf=null;}
   }
+  // Preload covers so they are ready on first hover
+  list.querySelectorAll('[data-img]').forEach(function(r){new Image().src=r.dataset.img;});
   list.querySelectorAll('.work-row').forEach(function(row){
     row.addEventListener('mouseenter',function(e){
       w=+row.dataset.w; h=+row.dataset.h;
       box.style.width=w+'px'; box.style.height=h+'px'; box.style.backgroundColor=row.dataset.color;
+      box.style.backgroundImage=row.dataset.img?'url('+row.dataset.img+')':'none';
       if(!active){mx=e.clientX;my=e.clientY;var t=target();x=t[0];y=t[1];}
       active=true; box.classList.add('on');
       if(!raf) raf=requestAnimationFrame(loop);
