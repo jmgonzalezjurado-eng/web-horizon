@@ -6,7 +6,11 @@
 <!-- TODO: remove noindex when the case study is finished -->
 <meta name="robots" content="noindex">
 <title>CORELIN · Case study · THE GASP COMPANY®</title>
-<!-- TODO: meta description, og:image -->
+<meta name="description" content="Visual identity and website for CORELIN, a UNED research project on the religiosity of immigrants and their descendants and its impact on their integration in Spain.">
+<meta property="og:title" content="CORELIN · Case study · THE GASP COMPANY®">
+<meta property="og:description" content="Visual identity and website for a research project on religiosity and the integration of immigrants in Spain.">
+<meta property="og:image" content="https://horizon-europe.thegasp.eu/work/corelin/img/logo.webp">
+<meta property="og:type" content="article">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -33,11 +37,39 @@ a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 .nav-links a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:22px;font-size:16px;font-weight:600;text-decoration:none;border:1.5px solid #000;background:#000;color:#fff}
 .btn:hover{background:#fff;color:#000}
-main{flex:1;padding-block:clamp(72px,9vw,120px);display:flex;flex-direction:column;gap:28px}
-.uni{font-size:18px;color:#595959;margin:0}
-h1{margin:0;font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
-.desc{margin:0;max-width:40ch;font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:#3d3d3d}
-.soon{margin-top:24px;padding:28px 0;border-top:1px solid #000;border-bottom:1px solid #000;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:18px}
+main{flex:1}
+h1,h2,p,figure{margin:0}
+img,video{display:block;width:100%;height:auto}
+/* Case study */
+.cs{--brand:#b3c7be;--green:#2a6a4f}
+.cs-hero{padding-block:clamp(72px,9vw,120px) clamp(48px,5vw,72px);display:flex;flex-direction:column;gap:28px}
+.uni{font-size:18px;color:#595959}
+h1{font-size:clamp(48px,7.4vw,112px);line-height:.96;font-weight:500;letter-spacing:-.03em}
+.lead{max-width:40ch;font-size:clamp(18px,1.55vw,22px);line-height:1.5;color:#3d3d3d}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:24px;padding-top:24px;border-top:1px solid #000;font-size:17px;line-height:1.45}
+.facts dt{font-size:15px;color:#595959;margin-bottom:6px}
+.facts dd{margin:0}
+.media{border-radius:10px;overflow:hidden;background:var(--brand)}
+.media.light{background:#f4f4f4}
+.media.white{background:#fff;box-shadow:inset 0 0 0 1px #e6e6e6}
+.media.white img{mix-blend-mode:multiply}
+.cs-sec{padding-block:clamp(72px,9vw,120px) 0;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)}
+.cs-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:20px;align-items:start}
+.cs-head .num{grid-column:span 2;font-size:15px;font-weight:600;padding-top:.6em}
+.cs-head h2{grid-column:span 4;font-size:clamp(34px,3.7vw,54px);line-height:1.03;font-weight:500;letter-spacing:-.02em}
+.cs-head p{grid-column:8 / span 5;font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:#3d3d3d}
+.stack{display:flex;flex-direction:column;gap:24px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.next{margin-top:clamp(72px,9vw,120px);padding-block:clamp(48px,6vw,80px);border-top:1px solid #000;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;text-decoration:none}
+.next small{display:block;font-size:15px;color:#595959;margin-bottom:10px}
+.next b{font-size:clamp(40px,5.2vw,80px);line-height:.98;font-weight:500;letter-spacing:-.03em}
+.next:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.btn-lg{min-height:56px;padding:0 28px;border-radius:28px;font-size:17px}
+@media (max-width:900px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cs-head .num,.cs-head h2,.cs-head p{grid-column:1 / -1}
+  .pair{grid-template-columns:1fr}
+}
 footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-area-inset-bottom,0px));font-size:15px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot .brand{color:#fff}
@@ -89,13 +121,49 @@ footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-are
   </div>
 </header>
 
-<main class="wrap">
-  <p class="uni">UNED</p>
-  <h1>CORELIN</h1>
-  <p class="desc">Religiosity and social integration of immigrants in Spain</p>
-  <div class="soon">
-    <span>Full case study coming soon.</span>
-    <a href="https://corelin.es">Visit corelin.es</a>
+<main class="cs">
+  <section class="wrap cs-hero">
+    <p class="uni">UNED</p>
+    <h1>CORELIN</h1>
+    <p class="lead">Social cohesion or conflict? The impact of the religiosity of immigrants and their descendants on their integration in Spain. Funded by a Leonardo Grant from the BBVA Foundation.</p>
+    <dl class="facts">
+      <div><dt>Client</dt><dd>UNED</dd></div>
+      <div><dt>Year</dt><dd>2026</dd></div>
+      <div><dt>Services</dt><dd>Identity, website</dd></div>
+      <div><dt>Website</dt><dd><a href="https://corelin.es">corelin.es</a></dd></div>
+    </dl>
+  </section>
+
+  <div class="wrap">
+    <figure class="media"><img src="img/logo.webp" width="2400" height="1561" alt="Proyecto CORELIN logo in green on a sage background, with the project subtitle"></figure>
+  </div>
+
+  <section class="wrap cs-sec" aria-labelledby="identity">
+    <div class="cs-head">
+      <span class="num">01</span>
+      <h2 id="identity">Identity</h2>
+      <p>The symbol is a rising sun. Light is present across different religions, each ray stands for a path guided by a person's own beliefs, and together the rays make up a single light, a picture of the cohesion the project studies. Opened up, the rays become a pattern that frames the project's materials in calm greens.</p>
+    </div>
+    <div class="stack">
+      <figure class="media white"><img src="img/symbol.webp" width="2400" height="1561" loading="lazy" alt="The CORELIN symbol explained: beliefs, light and cohesion"></figure>
+      <figure class="media"><img src="img/rays.webp" width="2400" height="1561" loading="lazy" alt="CORELIN logo surrounded by large sun rays used as a background pattern"></figure>
+      <figure class="media" style="background:var(--green)"><img src="img/partners.webp" width="2400" height="1561" loading="lazy" alt="CORELIN logo next to the UNED and Red Leonardo logos on dark green"></figure>
+    </div>
+  </section>
+
+  <section class="wrap cs-sec" aria-labelledby="website">
+    <div class="cs-head">
+      <span class="num">02</span>
+      <h2 id="website">Website</h2>
+      <p>corelin.es opens with the key figures on migration and religious diversity in Spain, then walks through the project's objectives, the research team, publications and activities, in the same calm palette as the identity.</p>
+    </div>
+    <div class="stack">
+      <figure class="media light"><video src="img/website-mockup.mp4" poster="img/website-mockup.webp" width="1440" height="932" autoplay muted loop playsinline preload="metadata" aria-label="The corelin.es website on a laptop, scrolling from the home page through the objectives and the research team"></video></figure>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <a class="next" href="/work/endiversidad55/"><span><small>Next project</small><b>ENDIVERSIDAD55+</b></span><span aria-hidden="true" style="font-size:clamp(32px,4vw,56px)">→</span></a>
   </div>
 </main>
 
@@ -124,6 +192,11 @@ footer{background:#000;color:#bdbdbd;padding-block:40px calc(40px + env(safe-are
   document.addEventListener('mouseleave',function(){dot.classList.remove('on');});
   document.addEventListener('mouseenter',function(){dot.classList.add('on');});
 })();
+</script>
+<script>
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true;});
+}
 </script>
 <script>
 /* Liquid glass (Chromium only: other browsers can't use SVG filters in backdrop-filter, so they keep the frosted fallback) */
