@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js): only loaded once the visitor accepts cookies -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+  window.gaspAnalytics=function(){
+    if(gaspAnalytics.on) return; gaspAnalytics.on=true;
+    gtag('consent', 'update', {analytics_storage:'granted'});
+    gtag('js', new Date());
+    gtag('config', 'G-9F7RX3NSX4');
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-9F7RX3NSX4';
+    document.head.appendChild(s);
+  };
+  try{ if(localStorage.getItem('gasp-consent')==='granted') gaspAnalytics(); }catch(e){}
+</script>
 <meta charset="utf-8">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/NeueMontreal-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -167,7 +182,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .cookie.glass{background:rgba(255,255,255,.42)}
 .cookie[hidden]{display:none}
 .cookie p{margin:0;font-size:16px;line-height:1.5}
-.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cookie-link{font:inherit;font-size:15px;color:var(--black);background:none;border:0;padding:0 6px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.legal{display:flex;gap:20px;flex-wrap:wrap}
 .cookie .btn{min-height:44px;padding:0 20px;font-size:15px}
 .btn-ghost{background:transparent;color:var(--black)}
 .btn-ghost:hover{background:var(--black);color:var(--white)}
@@ -393,7 +410,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <div class="foot">
       <a class="brand" href="#top"><svg class="logo" width="32" height="32"><use href="#gasp"/></svg><span>THE GASP COMPANY®</span></a>
       <span>©2022 – 2026 Javier González-Jurado · THE GASP COMPANY®. All rights reserved.</span>
-      <button type="button" class="legal-link" data-open-privacy>Privacy policy / Cookies</button>
+      <span class="legal"><button type="button" class="legal-link" data-open-privacy>Privacy policy / Cookies</button><button type="button" class="legal-link" data-cookie-settings>Cookie settings</button></span>
     </div>
   </div>
 </footer>
@@ -404,13 +421,13 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
       <h2 id="privacy-title">Privacy policy and cookies</h2>
       <button type="button" class="x" data-close-privacy aria-label="Close">×</button>
     </div>
-    <small>Last updated: September 2026</small>
+    <small>Last updated: October 2026</small>
 
     <h3>Who is responsible</h3>
     <p>This website is run by Javier González-Jurado, trading as THE GASP COMPANY®, based in Madrid, Spain. For any question about privacy, write to <a href="mailto:info@thegasp.eu">info@thegasp.eu</a>.</p>
 
-    <h3>We don’t collect personal data</h3>
-    <p>This site has no forms, no user accounts, no analytics and no advertising. We don’t track your visit, build profiles or share anything with third parties. The fonts and images are served from this site, so your browser doesn’t connect to Google or any other external service to display it.</p>
+    <h3>Analytics</h3>
+    <p>If you accept analytics cookies, we use Google Analytics to collect anonymous usage statistics: pages visited, time on site, approximate location (country/city), device and browser, and how you arrived. We use this only to understand which content is useful and improve the site. Google acts as our data processor and may transfer data outside the EU under the EU–US Data Privacy Framework. If you reject them, Google Analytics is not loaded at all. The site has no forms, user accounts or advertising.</p>
 
     <h3>If you email us</h3>
     <p>If you write to info@thegasp.eu, we use your name, email address and whatever you tell us only to reply and, if we end up working together, to prepare a quote or contract. We don’t add you to any mailing list. You can ask us to delete that correspondence at any time.</p>
@@ -419,7 +436,9 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
     <p>The site is hosted on GitHub Pages. Like any web server, GitHub may record technical data such as your IP address in its logs for security and to keep the service running. We don’t have access to those logs and don’t use them. See GitHub’s privacy statement for details.</p>
 
     <h3>Cookies</h3>
-    <p>This site doesn’t use cookies. The only thing it stores is a small note in your browser’s local storage to remember that you closed the cookie notice, so it doesn’t appear again. It contains no personal information and never leaves your device. You can delete it by clearing your browser data.</p>
+    <p>We only use cookies if you accept them:</p>
+    <p><code>_ga</code>, <code>_ga_9F7RX3NSX4</code> (Google Analytics): tell visits apart and measure sessions. They last up to 2 years.</p>
+    <p>We also store your choice in your browser’s local storage so we don’t ask again. You can change your mind at any time with the “Cookie settings” link at the bottom of every page.</p>
 
     <h3>Your rights</h3>
     <p>Under the GDPR you can ask to access, correct or delete any personal data we hold about you, or object to its use, by writing to info@thegasp.eu. You can also complain to the Spanish Data Protection Agency (Agencia Española de Protección de Datos, aepd.es).</p>
@@ -427,10 +446,11 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 </dialog>
 
 <div class="cookie" id="cookie" role="region" aria-label="Cookie notice" hidden>
-  <p>This site doesn’t use cookies or track your visit. Nothing to accept.</p>
+  <p>We’d like to use cookies to understand how visitors use this site, so we can improve it. They’re only set if you accept.</p>
   <div class="cookie-actions">
-    <button type="button" class="btn btn-solid" data-close-cookie>Got it</button>
-    <button type="button" class="btn btn-ghost" data-open-privacy>Read the policy</button>
+    <button type="button" class="btn btn-solid" data-consent="granted">Accept</button>
+    <button type="button" class="btn btn-solid" data-consent="denied">Reject</button>
+    <button type="button" class="cookie-link" data-open-privacy>Read the policy</button>
   </div>
 </div>
 
@@ -503,23 +523,40 @@ window.gaspGlass=(function(){
   document.querySelectorAll('[data-open-privacy]').forEach(function(b){b.addEventListener('click',function(){dlg.showModal();});});
   dlg.querySelector('[data-close-privacy]').addEventListener('click',function(){dlg.close();});
   dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
+  // Case studies link here as /#privacy
+  if(location.hash==='#privacy') dlg.showModal();
 })();
 
-/* Cookie notice */
+/* Cookie consent */
 (function(){
-  var box=document.getElementById('cookie'), KEY='gasp-cookie-notice';
-  var seen=false; try{seen=localStorage.getItem(KEY)==='closed';}catch(e){}
-  if(seen) return;
-  box.hidden=false;
-  setTimeout(function(){
-    box.classList.add('show');
-    if(window.gaspGlass) gaspGlass.attach(box);
-  },600);
-  box.querySelector('[data-close-cookie]').addEventListener('click',function(){
-    try{localStorage.setItem(KEY,'closed');}catch(e){}
+  var box=document.getElementById('cookie'), KEY='gasp-consent', glass=false;
+  function show(delay){
+    box.hidden=false;
+    setTimeout(function(){
+      box.classList.add('show');
+      if(window.gaspGlass&&!glass){glass=true;gaspGlass.attach(box);}
+    },delay);
+  }
+  function choose(v){
+    try{localStorage.setItem(KEY,v);}catch(e){}
+    if(v==='granted'){gaspAnalytics();}
+    else{
+      gtag('consent','update',{analytics_storage:'denied'});
+      // Drop any Google Analytics cookies left from an earlier "Accept"
+      document.cookie.split(';').forEach(function(c){
+        var n=c.split('=')[0].trim(); if(!/^_ga/.test(n)) return;
+        ['', ';domain='+location.hostname, ';domain=.'+location.hostname.split('.').slice(-2).join('.')].forEach(function(d){
+          document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+d;
+        });
+      });
+    }
     box.classList.remove('show');
     setTimeout(function(){box.hidden=true;},350);
-  });
+  }
+  box.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){choose(b.dataset.consent);});});
+  document.querySelectorAll('[data-cookie-settings]').forEach(function(b){b.addEventListener('click',function(){show(0);});});
+  var v=null; try{v=localStorage.getItem(KEY);}catch(e){}
+  if(!v) show(600);
 })();
 </script>
 <script>
